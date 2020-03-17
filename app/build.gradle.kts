@@ -1,6 +1,5 @@
 import Modules.implementData
 import Modules.implementDevice
-import Modules.implementDomain
 
 plugins {
     id("com.android.application")
@@ -13,7 +12,7 @@ android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
     buildToolsVersion(AndroidSdk.buildToolsVersion)
     defaultConfig {
-        applicationId = "com.example.template"
+        applicationId = "ru.kpfu.itis.quailly"
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
         versionCode = Versioning.version.code
@@ -27,6 +26,7 @@ android {
 
     buildTypes {
         getByName("release") {
+            isDebuggable = false
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -34,6 +34,7 @@ android {
             )
         }
         getByName("debug") {
+            isDebuggable = true
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             isTestCoverageEnabled = true

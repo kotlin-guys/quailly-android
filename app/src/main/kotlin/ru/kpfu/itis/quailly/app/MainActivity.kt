@@ -1,4 +1,4 @@
-package com.example.template.app
+package ru.kpfu.itis.quailly.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
