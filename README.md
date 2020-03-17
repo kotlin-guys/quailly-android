@@ -1,3 +1,3 @@
 # Quailly Android Client
 
-(Backend)[https://github.com/kotlin-guys/quailly-backend]
+[Backend](https://github.com/kotlin-guys/quailly-backend)
