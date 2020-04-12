@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_xs">4dp</dimen>
+    <dimen name="margin_s">8dp</dimen>
+    <dimen name="margin_sm">12dp</dimen>
+    <dimen name="margin_m">16dp</dimen>
+    <dimen name="margin_ml">20dp</dimen>
+    <dimen name="margin_l">24dp</dimen>
+    <dimen name="margin_xl">36dp</dimen>
+
+    <dimen name="text_s">12sp</dimen>
+    <dimen name="text_m">16sp</dimen>
+    <dimen name="text_l">20sp</dimen>
+    <dimen name="text_xl">24sp</dimen>
+
+    <!--dimens for auth-->
+    <dimen name="progress_bar_auth_width">132dp</dimen>
+    <dimen name="btn_width_auth">228dp</dimen>
+    <dimen name="btn_height_auth">56dp</dimen>
+
+    <!--dimens for start screen-->
+    <dimen name="img_logo_start_screen">160dp</dimen>
+
+</resources>

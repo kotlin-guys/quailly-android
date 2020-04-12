@@ -1,5 +1,6 @@
 import Modules.implementData
 import Modules.implementDevice
+import Modules.implementCore
 
 plugins {
     id("com.android.application")
@@ -54,8 +55,15 @@ android {
 dependencies {
     implementData()
     implementDevice()
+    implementCore()
 
     implementation(Libraries.coroutinesAndroid)
+
+    implementation(Libraries.javax)
+    implementation(Libraries.dagger)
+    kapt(Libraries.daggerCompiler)
+
+    implementation(Libraries.googleAuth)
 
     implementation(Libraries.AndroidX.core)
     implementation(Libraries.AndroidX.appcompat)
