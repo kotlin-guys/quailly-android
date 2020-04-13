@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!-- app color kit -->
+    <color name="color_primary_blue">#401CE9</color>
+    <color name="color_primary_violet">#872CC6</color>
+    <color name="color_inactive">#D1D3D4</color>
+
+    <!-- auth -->
+    <color name="color_727272">#727272</color>
+    <color name="color_B3FFFFFF">#B3FFFFFF</color>
+    <color name="color_808080">#808080</color>
 </resources>

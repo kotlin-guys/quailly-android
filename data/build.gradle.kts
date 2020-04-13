@@ -1,9 +1,11 @@
+import Modules.implementCore
 import Modules.implementDomain
 
 plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
 }
 
 android {
@@ -37,9 +39,14 @@ android {
 }
 
 dependencies {
+    implementCore()
     implementDomain()
 
     implementation(Libraries.coroutinesAndroid)
+
+    implementation(Libraries.javax)
+    implementation(Libraries.dagger)
+    kapt(Libraries.daggerCompiler)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)

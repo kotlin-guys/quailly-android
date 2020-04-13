@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
 }
 
 android {
@@ -40,6 +41,10 @@ dependencies {
     implementDomain()
 
     implementation(Libraries.coroutinesAndroid)
+
+    implementation(Libraries.javax)
+    implementation(Libraries.dagger)
+    kapt(Libraries.daggerCompiler)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)

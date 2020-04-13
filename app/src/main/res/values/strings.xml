@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidAppTemplate</string>
+
+    <!--common-->
+    <string name="close_error_alert_dialog">Ок</string>
+
+    <!--errors-->
+    <string name="error_network">Ошибка соединения</string>
+    <string name="error_too_many_requests">Слишком много запросов</string>
+    <string name="error_server_not_available">Сервер не доступен</string>
+    <string name="error_common">Ошибка</string>
+    <string name="error_timeout">Время ожидания истекло</string>
+    <string name="error_canceled">Запрос отменен</string>
+
 </resources>
