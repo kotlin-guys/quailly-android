@@ -7,6 +7,6 @@
 
     <!-- auth -->
     <color name="color_727272">#727272</color>
-    <color name="color_B3FFFFFF">#B3FFFFFF</color>
+    <color name="color_smooth_white">#D9FFFFFF</color>
     <color name="color_808080">#808080</color>
 </resources>

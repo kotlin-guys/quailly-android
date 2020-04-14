@@ -16,7 +16,7 @@
 
     <!--dimens for auth-->
     <dimen name="progress_bar_auth_width">132dp</dimen>
-    <dimen name="btn_width_auth">228dp</dimen>
+    <dimen name="btn_width_auth">296dp</dimen>
     <dimen name="btn_height_auth">56dp</dimen>
 
     <!--dimens for start screen-->

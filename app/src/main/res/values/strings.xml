@@ -12,4 +12,7 @@
     <string name="error_timeout">Время ожидания истекло</string>
     <string name="error_canceled">Запрос отменен</string>
 
+    <!--start screen-->
+    <string name="sign_in_with_google_start_screen">Войдите с помощью Google</string>
+
 </resources>
