@@ -1,4 +1,4 @@
-package ru.kpfu.itis.quailly.app.ui.navigation
+package ru.kpfu.itis.quailly.app.ui.events.navigation
 
 import androidx.navigation.NavDirections
 

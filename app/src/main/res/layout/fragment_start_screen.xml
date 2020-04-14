@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="vm"
             type="ru.kpfu.itis.quailly.app.ui.auth.start_screen.StartScreenViewModel" />
     </data>
 
@@ -31,6 +31,7 @@
             android:layout_width="@dimen/btn_width_auth"
             android:layout_height="@dimen/btn_height_auth"
             android:text="@string/sign_in_with_google_start_screen"
+            android:onClick="@{() -> vm.onSignInButtonClick()}"
             app:icon="@drawable/ic_google"
             app:iconSize="@dimen/margin_m"
             app:iconTint="@color/color_smooth_white"

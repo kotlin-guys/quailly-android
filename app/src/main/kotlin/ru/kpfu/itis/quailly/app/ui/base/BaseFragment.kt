@@ -18,7 +18,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import ru.kpfu.itis.quailly.BR
 import ru.kpfu.itis.quailly.R
-import ru.kpfu.itis.quailly.app.ui.navigation.NavigationCommand
+import ru.kpfu.itis.quailly.app.ui.events.navigation.NavigationCommand
 
 abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel> : Fragment() {
 
@@ -43,17 +43,17 @@ abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel
         super.onActivityCreated(savedInstanceState)
 
         doDataBinding()
+        observeValues()
         observeError()
-        init()
     }
 
     private fun doDataBinding() {
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.setVariable(BR.viewModel, viewModel)
+        binding.setVariable(BR.vm, viewModel)
         binding.executePendingBindings()
     }
 
-    protected open fun init() {}
+    protected open fun observeValues() {}
 
     private fun observeNavigation() {
         viewModel.navigation.observe(viewLifecycleOwner) { command ->

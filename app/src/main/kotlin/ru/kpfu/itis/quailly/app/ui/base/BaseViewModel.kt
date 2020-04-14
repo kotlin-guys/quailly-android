@@ -3,23 +3,22 @@ package ru.kpfu.itis.quailly.app.ui.base
 import androidx.annotation.CallSuper
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import ru.kpfu.itis.quailly.app.ui.navigation.NavigationCommand
+import ru.kpfu.itis.quailly.app.ui.events.navigation.NavigationCommand
 import ru.kpfu.itis.quailly.app.ui.utils.SingleEventLiveData
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
 
-    private val _error = SingleEventLiveData<String>()
+    protected val _error = SingleEventLiveData<String>()
     val error: LiveData<String> = _error
 
-    private val _navigation = SingleEventLiveData<NavigationCommand>()
+    protected val _navigation = SingleEventLiveData<NavigationCommand>()
     val navigation: LiveData<NavigationCommand> = _navigation
 
     fun navigate(directions: NavDirections) {

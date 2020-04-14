@@ -2,6 +2,8 @@ package ru.kpfu.itis.quailly.app.ui.auth.start_screen
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import ru.kpfu.itis.quailly.R
 import ru.kpfu.itis.quailly.app.ui.base.BaseFragment
 import ru.kpfu.itis.quailly.app.ui.getMainActivitySubcomponent
@@ -24,5 +26,15 @@ class StartScreenFragment : BaseFragment<FragmentStartScreenBinding, StartScreen
             .inject(this)
 
         super.onCreate(savedInstanceState)
+    }
+
+    override fun observeValues() {
+
+        viewModel.gso.observe(this) {
+            it?.let { gso ->
+                val client = GoogleSignIn.getClient(requireActivity(), gso)
+                startActivityForResult(client.signInIntent, 1488)
+            }
+        }
     }
 }
