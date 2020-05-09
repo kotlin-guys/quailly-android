@@ -12,7 +12,7 @@ import Libraries.AndroidX.Versions.navigationVersion
 import Libraries.AndroidX.Versions.pagingVersion
 import Libraries.AndroidX.Versions.recyclerviewVersion
 import Libraries.Glide.Versions.glideVersion
-import Libraries.Retrofit.Versions.loggingVersion
+import Libraries.Retrofit.Versions.okHttpVersion
 import Libraries.Retrofit.Versions.retrofitVersion
 import Libraries.Versions.coroutinesVersion
 import Libraries.Versions.daggerVersion
@@ -114,12 +114,13 @@ object Libraries {
 
         object Versions {
             const val retrofitVersion = "2.7.1"
-            const val loggingVersion = "4.3.1"
+            const val okHttpVersion = "4.3.1"
         }
 
         const val jsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
         const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
-        const val logging = "com.squareup.okhttp3:logging-interceptor:$loggingVersion"
+        const val okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+        const val logging = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     }
 }
 

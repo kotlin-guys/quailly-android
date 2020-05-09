@@ -50,6 +50,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    //TODO: подумать о том, как вынести в project-level билд (скорее всего в subprojects)
+    sourceSets {
+        sourceSets.getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+    }
 }
 
 dependencies {

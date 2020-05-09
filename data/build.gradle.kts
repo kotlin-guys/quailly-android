@@ -36,6 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    //TODO: подумать о том, как вынести в project-level билд (скорее всего в subprojects)
+    sourceSets {
+        sourceSets.getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+    }
 }
 
 dependencies {
@@ -44,6 +51,10 @@ dependencies {
 
     implementation(Libraries.coroutinesAndroid)
 
+    implementation(Libraries.Retrofit.jsonConverter)
+    implementation(Libraries.Retrofit.retrofit)
+    implementation(Libraries.Retrofit.logging)
+    implementation(Libraries.Retrofit.okHttp)
     implementation(Libraries.javax)
     implementation(Libraries.dagger)
     kapt(Libraries.daggerCompiler)
