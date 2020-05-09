@@ -18,6 +18,9 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
     protected val _error = SingleEventLiveData<String>()
     val error: LiveData<String> = _error
 
+    protected val _progress = SingleEventLiveData(false)
+    val progress: LiveData<Boolean> = _progress
+
     protected val _navigation = SingleEventLiveData<NavigationCommand>()
     val navigation: LiveData<NavigationCommand> = _navigation
 

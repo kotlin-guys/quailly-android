@@ -20,11 +20,16 @@ android {
 
     buildTypes {
         getByName("release") {
+            buildConfigField("String", "QUAILLY_BACK_URL", "\"http://quailly.herokuapp.com/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        getByName("debug") {
+            buildConfigField("String", "QUAILLY_BACK_URL", "\"http://quailly.herokuapp.com/\"")
         }
     }
 

@@ -16,6 +16,7 @@ import Libraries.Retrofit.Versions.okHttpVersion
 import Libraries.Retrofit.Versions.retrofitVersion
 import Libraries.Versions.coroutinesVersion
 import Libraries.Versions.daggerVersion
+import Libraries.Versions.firebaseAuthVersion
 import Libraries.Versions.googleAuthVersion
 import Libraries.Versions.javaxInjectVersion
 import TestLibraries.Versions.androidJunitVersion
@@ -50,6 +51,7 @@ object Libraries {
         const val javaxInjectVersion = "1"
         const val daggerVersion = "2.25.2"
         const val googleAuthVersion = "18.0.0"
+        const val firebaseAuthVersion = "19.3.1"
     }
 
     const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"

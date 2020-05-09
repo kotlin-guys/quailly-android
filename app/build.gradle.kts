@@ -72,6 +72,11 @@ dependencies {
 
     implementation(Libraries.googleAuth)
 
+    implementation(Libraries.Retrofit.jsonConverter)
+    implementation(Libraries.Retrofit.retrofit)
+    implementation(Libraries.Retrofit.logging)
+    implementation(Libraries.Retrofit.okHttp)
+
     implementation(Libraries.AndroidX.core)
     implementation(Libraries.AndroidX.appcompat)
     implementation(Libraries.AndroidX.activity)
