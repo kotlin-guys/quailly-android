@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.kpfu.itis.quailly.core.di.PerApp
@@ -41,13 +40,13 @@ class QuaillyNetModule {
     @Provides
     @PerApp
     @NotAuthedQualifier
-    fun notAuthedOkHttp(): OkHttpClient {
+    fun notAuthedOkHttp(@LoggingQualifier loggingInterceptor: Interceptor): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
 
-        if (BuildConfig.DEBUG) builder.addInterceptor(getLoggingInterceptor())
+        if (BuildConfig.DEBUG) builder.addInterceptor(loggingInterceptor)
 
         return builder.build()
     }
@@ -68,6 +67,7 @@ class QuaillyNetModule {
     @PerApp
     @AuthedQualifier
     fun authedOkHttp(
+        @LoggingQualifier loggingInterceptor: Interceptor,
         @AuthedQualifier interceptor: Interceptor
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
@@ -76,7 +76,7 @@ class QuaillyNetModule {
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
             .addInterceptor(interceptor)
 
-        if (BuildConfig.DEBUG) builder.addInterceptor(getLoggingInterceptor())
+        if (BuildConfig.DEBUG) builder.addInterceptor(loggingInterceptor)
 
         return builder.build()
     }
@@ -95,13 +95,6 @@ class QuaillyNetModule {
 
         it.proceed(request)
     }
-
-    @Provides
-    @PerApp
-    fun gsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
-
-    private fun getLoggingInterceptor(): Interceptor =
-        HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
 }
 
 @Qualifier

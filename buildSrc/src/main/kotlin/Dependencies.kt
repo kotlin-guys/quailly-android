@@ -8,7 +8,6 @@ import Libraries.AndroidX.Versions.lifecycleVersion
 import Libraries.AndroidX.Versions.livedataVersion
 import Libraries.AndroidX.Versions.materialVersion
 import Libraries.AndroidX.Versions.multidexVersion
-import Libraries.AndroidX.Versions.navigationVersion
 import Libraries.AndroidX.Versions.pagingVersion
 import Libraries.AndroidX.Versions.recyclerviewVersion
 import Libraries.Glide.Versions.glideVersion
@@ -16,7 +15,6 @@ import Libraries.Retrofit.Versions.okHttpVersion
 import Libraries.Retrofit.Versions.retrofitVersion
 import Libraries.Versions.coroutinesVersion
 import Libraries.Versions.daggerVersion
-import Libraries.Versions.firebaseAuthVersion
 import Libraries.Versions.googleAuthVersion
 import Libraries.Versions.javaxInjectVersion
 import TestLibraries.Versions.androidJunitVersion
@@ -25,6 +23,7 @@ import TestLibraries.Versions.junitVersion
 import TestLibraries.Versions.testRunnerVersion
 
 const val kotlinVersion = "1.3.61"
+const val navigationVersion = "2.3.0-alpha03"
 
 object BuildPlugins {
 
@@ -34,6 +33,7 @@ object BuildPlugins {
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${buildToolsVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    const val navigationGradlePlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
 }
 
 object AndroidSdk {
@@ -76,7 +76,6 @@ object Libraries {
             const val recyclerviewVersion = "1.2.0-alpha01"
             const val lifecycleVersion = "2.1.0"
             const val multidexVersion = "2.0.1"
-            const val navigationVersion = "2.2.0"
             const val materialVersion = "1.2.0-alpha03"
             const val livedataVersion = "2.2.0-rc03"
             const val pagingVersion = "2.1.1"

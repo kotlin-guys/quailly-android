@@ -10,7 +10,15 @@
         android:name="ru.kpfu.itis.quailly.app.ui.auth.start_screen.StartScreenFragment"
         android:label="StartScreenFragment"
         tools:layout="@layout/fragment_start_screen">
+        <action
+            android:id="@+id/action_startScreenFragment_to_newItemFragment"
+            app:destination="@id/nav_graph_new_item"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
+
+    <include app:graph="@navigation/nav_graph_new_item" />
 
 
 </navigation>

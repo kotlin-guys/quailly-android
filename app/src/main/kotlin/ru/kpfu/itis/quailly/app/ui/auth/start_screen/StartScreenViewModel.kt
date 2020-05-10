@@ -8,6 +8,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import kotlinx.coroutines.launch
 import ru.kpfu.itis.quailly.R
 import ru.kpfu.itis.quailly.app.ui.auth.start_screen.mapper.AuthModelMapper
+import ru.kpfu.itis.quailly.app.ui.events.navigation.NavigationCommand
 import ru.kpfu.itis.quailly.app.ui.utils.SingleEventLiveData
 import ru.kpfu.itis.quailly.app.ui.utils.resource_provider.ResourceProvider
 import ru.kpfu.itis.quailly.domain.use_case.auth.AuthUseCase
@@ -32,7 +33,7 @@ class StartScreenViewModel @Inject constructor(
 
     fun handleAuthSuccess(account: GoogleSignInAccount?) {
 
-        _progress.value = true
+        progressLiveData.value = true
 
         launch {
 
@@ -44,20 +45,25 @@ class StartScreenViewModel @Inject constructor(
                 handleAuthResultFromBack(result)
             }
         }
-
     }
 
     fun handleAuthError(message: String?) {
-        _error.value = message ?: resProvider.getString(R.string.error_common)
+        errorMessageLiveData.value = message ?: resProvider.getString(R.string.error_common)
     }
 
     private fun handleAuthResultFromBack(result: Boolean) {
 
-        when(result) {
+        when (result) {
 
-            true -> { }
+            true -> {
+                navigate(
+                    NavigationCommand.To(
+                        StartScreenFragmentDirections.actionStartScreenFragmentToNewItemFragment()
+                    )
+                )
+            }
 
-            false -> _error.value = resProvider.getString(R.string.error_common)
+            false -> errorMessageLiveData.value = resProvider.getString(R.string.error_common)
         }
     }
 }

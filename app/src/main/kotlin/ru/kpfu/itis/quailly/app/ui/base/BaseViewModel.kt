@@ -3,8 +3,8 @@ package ru.kpfu.itis.quailly.app.ui.base
 import androidx.annotation.CallSuper
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavDirections
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,17 +15,18 @@ import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
 
-    protected val _error = SingleEventLiveData<String>()
-    val error: LiveData<String> = _error
+    val errorMessageLiveData = MutableLiveData<String>()
+    val progressLiveData = MutableLiveData<Boolean>()
 
-    protected val _progress = SingleEventLiveData(false)
-    val progress: LiveData<Boolean> = _progress
-
-    protected val _navigation = SingleEventLiveData<NavigationCommand>()
+    private val _navigation = SingleEventLiveData<NavigationCommand>()
     val navigation: LiveData<NavigationCommand> = _navigation
 
-    fun navigate(directions: NavDirections) {
-        _navigation.value = NavigationCommand.To(directions)
+    init {
+        progressLiveData.value = false
+    }
+
+    fun navigate(navigationCommand: NavigationCommand) {
+        _navigation.value = navigationCommand
     }
 
     private val superVisorJob = SupervisorJob()
@@ -38,12 +39,15 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
         handleCoroutineException(exception)
     }
 
+    open fun onNavigationResult(value: Any) {}
+
     open fun onBackButtonClicked() {
         _navigation.value = NavigationCommand.Back
     }
 
     @CallSuper
-    protected open fun handleCoroutineException(ex: Throwable) { }
+    protected open fun handleCoroutineException(ex: Throwable) {
+    }
 
     @CallSuper
     override fun onCleared() {

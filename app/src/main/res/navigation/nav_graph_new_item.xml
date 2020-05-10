@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_new_item"
+    app:startDestination="@id/newItemFragment">
+
+    <fragment
+        android:id="@+id/newItemFragment"
+        android:name="ru.kpfu.itis.quailly.app.ui.new_item.NewItemFragment"
+        android:label="NewItemFragment"
+        tools:layout="@layout/fragment_new_item">
+        <action
+            android:id="@+id/action_newItemFragment_to_choosePhotoFragment"
+            app:destination="@id/choosePhotoFragment">
+            <argument
+                android:name="reqCode"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <dialog
+        android:id="@+id/choosePhotoFragment"
+        android:name="ru.kpfu.itis.quailly.app.ui.new_item.photo_chooser.PhotoChooserBottomSheet"
+        android:label="ChoosePhotoFragment"
+        tools:layout="@layout/bottom_sheet_photo_chooser" >
+        <argument
+            android:name="reqCode"
+            app:argType="string" />
+    </dialog>
+
+</navigation>

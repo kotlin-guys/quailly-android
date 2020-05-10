@@ -35,7 +35,7 @@ class StartScreenFragment : BaseFragment<FragmentStartScreenBinding, StartScreen
         super.onCreate(savedInstanceState)
     }
 
-    override fun observeValues() {
+    override fun init() {
 
         viewModel.gso.observe(this) {
             it?.let { gso ->

@@ -4,15 +4,23 @@
     <!--common-->
     <string name="close_error_alert_dialog">Ок</string>
 
-    <!--errors-->
-    <string name="error_network">Ошибка соединения</string>
-    <string name="error_too_many_requests">Слишком много запросов</string>
-    <string name="error_server_not_available">Сервер не доступен</string>
-    <string name="error_common">Ошибка</string>
-    <string name="error_timeout">Время ожидания истекло</string>
-    <string name="error_canceled">Запрос отменен</string>
-
     <!--start screen-->
     <string name="sign_in_with_google_start_screen">Войдите с помощью Google</string>
+
+    <!--choose photo-->
+    <string name="new_photo_choose_photo">Сделайте новый снимок</string>
+    <string name="gallery_choose_photo">Выберите из галереи</string>
+    <string name="not_recognized_choose_photo">Не могу распознать изображение</string>
+    <string name="photo_not_available_choose_photo">Изображение недоступно</string>
+
+    <string name="back">Вернуться назад</string>
+
+    <!--new item-->
+    <string name="title_new_item">Добавьте новый предмет</string>
+    <string name="name_label_new_item">Название:</string>
+    <string name="description_label_new_item">Описание:</string>
+    <string name="add_photo_label_new_item">Фотография:</string>
+    <string name="add_photo_btn_new_item">Добавьте фотографию</string>
+    <string name="save_btn_new_item">Сохранить предмет</string>
 
 </resources>

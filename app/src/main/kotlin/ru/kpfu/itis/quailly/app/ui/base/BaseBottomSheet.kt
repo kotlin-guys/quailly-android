@@ -1,9 +1,11 @@
 package ru.kpfu.itis.quailly.app.ui.base
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.annotation.CallSuper
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
@@ -11,16 +13,19 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.quailly.app.ui.events.navigation.NavigationCommand
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.kpfu.itis.quailly.BR
 import ru.kpfu.itis.quailly.R
-import ru.kpfu.itis.quailly.app.ui.events.navigation.NavigationCommand
 
-abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel> : Fragment() {
+abstract class BaseBottomSheet<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel> :
+    BottomSheetDialogFragment() {
 
     protected abstract val viewModel: VIEWMODEL
     protected lateinit var binding: BINDING
@@ -33,6 +38,18 @@ abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel
         observeNavigation()
         binding = DataBindingUtil.inflate(inflater, getLayoutResId(), container, false)
         return binding.root
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.setOnShowListener {
+            val layout =
+                (it as BottomSheetDialog).findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            layout?.let { it1 ->
+                BottomSheetBehavior.from(it1).state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+        return dialog
     }
 
     @LayoutRes
@@ -69,17 +86,16 @@ abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel
                             command.reqCode,
                             command.result
                         )
-                        navigateUp()
+                        popBackStack()
                     }
                 }
             }
         }
     }
 
-    protected fun <T : Any> observeNavigationResult(key: String) {
+    protected fun <T> setNavigationResult(key: String) {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<T>(key)
             ?.observe(viewLifecycleOwner) {
-                viewModel.onNavigationResult(it)
             }
     }
 
@@ -99,7 +115,7 @@ abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel
         findNavController().popBackStack()
     }
 
-    private fun showErrorDialog(errorMessage: String) {
+    protected fun showErrorDialog(errorMessage: String) {
         AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.ErrorDialogTheme))
             .setMessage(errorMessage)
             .setPositiveButton(R.string.close_error_alert_dialog) { _, _ -> }

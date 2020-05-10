@@ -22,4 +22,13 @@
     <!--dimens for start screen-->
     <dimen name="img_logo_start_screen">160dp</dimen>
 
+    <!--dimens for photo chooser-->
+    <dimen name="dialog_height_photo_chooser">188dp</dimen>
+    <dimen name="icon_size_photo_chooser">56dp</dimen>
+
+    <!--dimens for new item-->
+    <dimen name="save_btn_stroke_size_new_item">2dp</dimen>
+
+    <dimen name="btn_back">24dp</dimen>
+
 </resources>
