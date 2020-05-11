@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         getByName("release") {
-            buildConfigField("String", "QUAILLY_BACK_URL", "\"http://quailly.herokuapp.com/\"")
+            buildConfigField("String", "QUAILLY_BACK_URL", "\"https://quailly.herokuapp.com/\"")
             buildConfigField("String", "IMGUR_UPLOAD_URL", "\"https://api.imgur.com/3/\"")
             buildConfigField("String", "IMGUR_CLIENT_ID", "\"d3be8ee09264245\"")
             isMinifyEnabled = false
@@ -31,7 +31,7 @@ android {
         }
 
         getByName("debug") {
-            buildConfigField("String", "QUAILLY_BACK_URL", "\"http://quailly.herokuapp.com/\"")
+            buildConfigField("String", "QUAILLY_BACK_URL", "\"https://quailly.herokuapp.com/\"")
             buildConfigField("String", "IMGUR_UPLOAD_URL", "\"https://api.imgur.com/3/\"")
             buildConfigField("String", "IMGUR_CLIENT_ID", "\"d3be8ee09264245\"")
         }
