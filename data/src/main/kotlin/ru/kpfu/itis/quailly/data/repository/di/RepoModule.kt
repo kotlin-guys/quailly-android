@@ -7,7 +7,9 @@ import kotlinx.coroutines.FlowPreview
 import ru.kpfu.itis.quailly.core.di.PerApp
 import ru.kpfu.itis.quailly.data.repository.auth.AuthRepoImpl
 import ru.kpfu.itis.quailly.data.repository.image.PhotoRepositoryImpl
+import ru.kpfu.itis.quailly.data.repository.merchandise.MerchandisesRepositoryImpl
 import ru.kpfu.itis.quailly.domain.repo.AuthRepo
+import ru.kpfu.itis.quailly.domain.repo.MerchandisesRepository
 import ru.kpfu.itis.quailly.domain.repo.PhotoRepository
 
 @FlowPreview
@@ -22,4 +24,8 @@ interface RepoModule {
     @Binds
     @PerApp
     fun bind2(repo: PhotoRepositoryImpl): PhotoRepository
+
+    @Binds
+    @PerApp
+    fun bind3(repo: MerchandisesRepositoryImpl): MerchandisesRepository
 }
