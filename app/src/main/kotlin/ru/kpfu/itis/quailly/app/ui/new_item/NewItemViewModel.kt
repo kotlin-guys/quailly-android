@@ -29,6 +29,10 @@ class NewItemViewModel @Inject constructor(
         )
     )
 
+    fun onCategoryClick() {
+
+    }
+
     fun onSaveBtnClick() {
         launch {
             isBtnEnabled.value = false
