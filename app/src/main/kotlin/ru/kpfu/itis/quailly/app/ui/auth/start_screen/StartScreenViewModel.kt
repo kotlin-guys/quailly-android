@@ -61,6 +61,11 @@ class StartScreenViewModel @Inject constructor(
                         StartScreenFragmentDirections.actionStartScreenFragmentToNewItemFragment()
                     )
                 )
+//                navigate(
+//                    NavigationCommand.To(
+//                        StartScreenFragmentDirections.actionStartScreenFragmentToMainFlowFragment()
+//                    )
+//                )
             }
 
             false -> errorMessageLiveData.value = resProvider.getString(R.string.error_common)

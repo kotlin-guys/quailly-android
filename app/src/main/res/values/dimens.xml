@@ -31,4 +31,8 @@
 
     <dimen name="btn_back">24dp</dimen>
 
+    <!--dimens for main flow-->
+    <dimen name="bottom_nav_indicator_height_main_flow">2dp</dimen>
+    <dimen name="bottom_nav_icon_size_main_flow">28dp</dimen>
+
 </resources>
