@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.kpfu.itis.quailly.core.di.PerApp
 import ru.kpfu.itis.quailly.data.local.token_helper.TokenHelper
+import ru.kpfu.itis.quailly.data.network.api.QuaillyAuthedApi
 import ru.kpfu.itis.quailly.data.network.api.QuaillyNotAuthedApi
 import java.util.concurrent.TimeUnit
 import javax.inject.Qualifier
@@ -24,6 +25,10 @@ class QuaillyNetModule {
     @Provides
     @PerApp
     fun notAuthedQuaillyApi(@NotAuthedQualifier retrofit: Retrofit) = retrofit.create(QuaillyNotAuthedApi::class.java)
+
+    @Provides
+    @PerApp
+    fun authedQuaillyApi(@AuthedQualifier retrofit: Retrofit) = retrofit.create(QuaillyAuthedApi::class.java)
 
     @Provides
     @PerApp

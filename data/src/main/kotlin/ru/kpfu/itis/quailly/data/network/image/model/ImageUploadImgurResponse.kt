@@ -6,3 +6,9 @@ data class ImageUploadImgurResponse (
 
     @SerializedName("data") val data: ImageUploadImgurResult
 )
+
+data class ImageUploadImgurResult (
+
+    @SerializedName("id") val id: String,
+    @SerializedName("link") val link: String
+)
