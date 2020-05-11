@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.kpfu.itis.quailly.core.di.PerApp
 import ru.kpfu.itis.quailly.data.local.token_helper.TokenHelper
+import ru.kpfu.itis.quailly.data.network.api.QuaillyAuthedApi
 import ru.kpfu.itis.quailly.data.network.api.QuaillyNotAuthedApi
 import java.util.concurrent.TimeUnit
 import javax.inject.Qualifier
@@ -18,12 +19,18 @@ class QuaillyNetModule {
 
     private companion object {
         const val TIMEOUT = 10L
-        const val HEADER_AUTH = "Authorization:"
+        const val HEADER_AUTH = "Authorization"
     }
 
     @Provides
     @PerApp
-    fun notAuthedQuaillyApi(@NotAuthedQualifier retrofit: Retrofit) = retrofit.create(QuaillyNotAuthedApi::class.java)
+    fun notAuthedQuaillyApi(@NotAuthedQualifier retrofit: Retrofit) =
+        retrofit.create(QuaillyNotAuthedApi::class.java)
+
+    @Provides
+    @PerApp
+    fun authedQuaillyApi(@AuthedQualifier retrofit: Retrofit) =
+        retrofit.create(QuaillyAuthedApi::class.java)
 
     @Provides
     @PerApp
@@ -87,7 +94,7 @@ class QuaillyNetModule {
     fun authedInterceptor(tokenHelper: TokenHelper): Interceptor = Interceptor {
         var request = it.request()
 
-        tokenHelper.getToken()?.let {token ->
+        tokenHelper.getToken()?.let { token ->
             request = request.newBuilder()
                 .addHeader(HEADER_AUTH, token)
                 .build()

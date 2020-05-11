@@ -51,24 +51,24 @@ class StartScreenViewModel @Inject constructor(
         errorMessageLiveData.value = message ?: resProvider.getString(R.string.error_common)
     }
 
-    private fun handleAuthResultFromBack(result: Boolean) {
-
+    private fun handleAuthResultFromBack(result: AuthUseCase.AuthStatus) {
         when (result) {
-
-            true -> {
+            AuthUseCase.AuthStatus.EMPTY -> {
                 navigate(
                     NavigationCommand.To(
                         StartScreenFragmentDirections.actionStartScreenFragmentToNewItemFragment()
                     )
                 )
-//                navigate(
-//                    NavigationCommand.To(
-//                        StartScreenFragmentDirections.actionStartScreenFragmentToMainFlowFragment()
-//                    )
-//                )
             }
-
-            false -> errorMessageLiveData.value = resProvider.getString(R.string.error_common)
+            AuthUseCase.AuthStatus.NOT_EMPTY -> {
+                navigate(
+                    NavigationCommand.To(
+                        StartScreenFragmentDirections.actionStartScreenFragmentToMainFlowFragment()
+                    )
+                )
+            }
+            AuthUseCase.AuthStatus.UNAUTHORIZED -> errorMessageLiveData.value =
+                resProvider.getString(R.string.error_common)
         }
     }
 }
