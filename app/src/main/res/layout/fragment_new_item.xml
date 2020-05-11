@@ -41,20 +41,6 @@
                 android:textColor="@color/color_default"
                 android:textSize="@dimen/text_l" />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/BtnWhiteBorder"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/btn_height_auth"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="@dimen/margin_l"
-                android:layout_marginTop="@dimen/margin_s"
-                android:layout_marginEnd="@dimen/margin_l"
-                android:onClick="@{() -> viewModel.onPhotoClick()}"
-                android:text="@string/add_photo_btn_new_item"
-                app:icon="@drawable/ic_add_a_photo"
-                app:iconTint="@color/color_default"
-                app:isVisibleWithGone="@{viewModel.fieldManager.image.fieldValue == null}" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,6 +102,20 @@
                 android:text="@string/add_photo_label_new_item"
                 android:textColor="@color/color_default"
                 android:textSize="@dimen/text_m" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/BtnWhiteBorder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height_auth"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/margin_l"
+                android:layout_marginTop="@dimen/margin_s"
+                android:layout_marginEnd="@dimen/margin_l"
+                android:onClick="@{() -> viewModel.onPhotoClick()}"
+                android:text="@string/add_photo_btn_new_item"
+                app:icon="@drawable/ic_add_a_photo"
+                app:iconTint="@color/color_default"
+                app:isVisibleWithGone="@{viewModel.fieldManager.image.fieldValue == null}" />
 
             <ImageView
                 android:layout_width="150dp"
