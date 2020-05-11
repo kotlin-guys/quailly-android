@@ -1,4 +1,4 @@
-package ru.kpfu.itis.quailly.app.ui.bindings
+package ru.kpfu.itis.quailly.app.ui.utils.bindings
 
 import android.view.View
 import androidx.databinding.BindingAdapter
