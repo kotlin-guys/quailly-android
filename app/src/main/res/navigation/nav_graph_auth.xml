@@ -16,9 +16,13 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/wait"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_startScreenFragment_to_mainFlowFragment"
+            app:destination="@id/nav_graph_authed" />
     </fragment>
 
     <include app:graph="@navigation/nav_graph_new_item" />
 
+    <include app:graph="@navigation/nav_graph_authed" />
 
 </navigation>

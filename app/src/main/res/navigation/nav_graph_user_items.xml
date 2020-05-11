@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_user_items"
+    app:startDestination="@id/userItemsFragment">
+
+    <fragment
+        android:id="@+id/userItemsFragment"
+        android:name="ru.kpfu.itis.quailly.app.ui.main_flow.user_items.UserItemsFragment"
+        android:label="UserItemsFragment"
+        tools:layout="@layout/fragment_user_items">
+    </fragment>
+
+</navigation>
