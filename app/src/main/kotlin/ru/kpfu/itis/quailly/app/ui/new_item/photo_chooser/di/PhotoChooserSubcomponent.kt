@@ -1,7 +1,7 @@
 package ru.kpfu.itis.quailly.app.ui.new_item.photo_chooser.di
 
-import ru.kpfu.itis.quailly.app.ui.new_item.photo_chooser.PhotoChooserBottomSheet
 import dagger.Subcomponent
+import ru.kpfu.itis.quailly.app.ui.new_item.photo_chooser.PhotoChooserBottomSheet
 import ru.kpfu.itis.quailly.core.di.PerFragment
 
 @Subcomponent(modules = [PhotoChooserModule::class])

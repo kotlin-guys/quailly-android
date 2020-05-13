@@ -1,8 +1,10 @@
 package ru.kpfu.itis.quailly.app.ui.new_item.field_manager
 
 import android.net.Uri
+import androidx.lifecycle.LiveData
 import ru.kpfu.itis.quailly.app.ui.new_item.field.Field
 import ru.kpfu.itis.quailly.app.ui.utils.ext.isAllTrue
+import ru.kpfu.itis.quailly.app.ui.utils.ext.map
 import ru.kpfu.itis.quailly.domain.model.Category
 import javax.inject.Inject
 
@@ -19,9 +21,17 @@ class NewItemFieldManager @Inject constructor() {
     val category = Field(::checkIsNull, ::validateCategory)
     val desiredCategories = Field(List<Category>::isNullOrEmpty, ::validateDesiredCategories)
 
+    val desiredCategoriesFormattedValue: LiveData<String> = desiredCategories.fieldValue
+        .map {
+            it.joinToString {
+                it.name
+            }
+        }
+
     val isFormValid = listOf(
-        image.isValid, name.isValid, description.isValid,
-        image.initialized, name.initialized, description.initialized
+        image.isValid, name.isValid, description.isValid, category.isValid, desiredCategories.isValid,
+        image.initialized, name.initialized, description.initialized, category.initialized,
+        desiredCategories.initialized
     ).isAllTrue()
 
     private fun validateImage(value: Uri?): Boolean {
@@ -46,7 +56,7 @@ class NewItemFieldManager @Inject constructor() {
 
     private fun validateDesiredCategories(value: List<Category>?): Boolean {
 
-        return value.isNullOrEmpty()
+        return value.isNullOrEmpty().not()
     }
 
     private fun checkIsNull(any: Any?): Boolean = any == null

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="category"
+            type="ru.kpfu.itis.quailly.domain.model.Category" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/category_li_height_new_item"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_m"
+            android:fontFamily="@font/roboto"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_text_default"
+            android:textSize="@dimen/text_sm"
+            android:text="@{category.name}"/>
+
+    </FrameLayout>
+
+</layout>

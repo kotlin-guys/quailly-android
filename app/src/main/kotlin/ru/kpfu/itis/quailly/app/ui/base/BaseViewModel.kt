@@ -39,7 +39,7 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
         handleCoroutineException(exception)
     }
 
-    open fun onNavigationResult(value: Any) {}
+    open fun onNavigationResult(key: String, value: Any) {}
 
     open fun onBackButtonClicked() {
         _navigation.value = NavigationCommand.Back

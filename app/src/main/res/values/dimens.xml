@@ -10,6 +10,7 @@
     <dimen name="margin_xl">36dp</dimen>
 
     <dimen name="text_s">12sp</dimen>
+    <dimen name="text_sm">12sp</dimen>
     <dimen name="text_m">16sp</dimen>
     <dimen name="text_l">20sp</dimen>
     <dimen name="text_xl">24sp</dimen>
@@ -28,6 +29,9 @@
 
     <!--dimens for new item-->
     <dimen name="save_btn_stroke_size_new_item">2dp</dimen>
+    <dimen name="category_li_height_new_item">40dp</dimen>
+    <dimen name="dialog_height_category_new_item">300dp</dimen>
+    <dimen name="dialog_category_list_size">252dp</dimen>
 
     <dimen name="btn_back">24dp</dimen>
 

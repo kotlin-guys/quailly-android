@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="category"
+            type="ru.kpfu.itis.quailly.domain.model.Category" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/category_li_height_new_item"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_m"
+            android:gravity="start"
+            android:layout_gravity="start"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_check"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/color_text_default"
+            android:textSize="@dimen/text_sm"
+            android:text="@{category.name}"/>
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/margin_m"
+            android:tint="@color/color_text_default" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -79,7 +79,7 @@ abstract class BaseFragment<BINDING : ViewDataBinding, VIEWMODEL : BaseViewModel
     protected fun <T : Any> observeNavigationResult(key: String) {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<T>(key)
             ?.observe(viewLifecycleOwner) {
-                viewModel.onNavigationResult(it)
+                viewModel.onNavigationResult(key, it)
             }
     }
 

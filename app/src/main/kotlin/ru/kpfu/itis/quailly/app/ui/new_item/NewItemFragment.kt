@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import ru.kpfu.itis.quailly.app.ui.base.BaseFragment
 import ru.kpfu.itis.quailly.R
 import ru.kpfu.itis.quailly.app.ui.getMainActivitySubcomponent
+import ru.kpfu.itis.quailly.app.ui.new_item.model.CategoryResult
 import ru.kpfu.itis.quailly.app.ui.utils.ViewModelFactory
 import ru.kpfu.itis.quailly.databinding.FragmentNewItemBinding
 import javax.inject.Inject
@@ -28,5 +29,7 @@ class NewItemFragment : BaseFragment<FragmentNewItemBinding, NewItemViewModel>()
 
     override fun init() {
         observeNavigationResult<Uri>(viewModel.reqCodePhoto.toString())
+        observeNavigationResult<CategoryResult>(viewModel.reqCodeCategory.toString())
+        observeNavigationResult<List<CategoryResult>>(viewModel.reqCodeDesiredCategories.toString())
     }
 }

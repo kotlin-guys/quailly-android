@@ -19,7 +19,7 @@ class QuaillyNetModule {
 
     private companion object {
         const val TIMEOUT = 10L
-        const val HEADER_AUTH = "Authorization:"
+        const val HEADER_AUTH = "Authorization"
     }
 
     @Provides

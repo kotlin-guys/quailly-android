@@ -103,6 +103,17 @@
                 android:textColor="@color/color_default"
                 android:textSize="@dimen/text_m" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_s"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/color_default"
+                android:textSize="@dimen/text_sm"
+                android:text="@{viewModel.fieldManager.category.fieldValue.name}"
+                app:isVisibleWithGone="@{viewModel.fieldManager.category.fieldValue != null}"/>
+
             <com.google.android.material.button.MaterialButton
                 style="@style/BtnWhiteBorder"
                 android:layout_width="match_parent"
@@ -114,8 +125,41 @@
                 android:onClick="@{() -> viewModel.onCategoryClick()}"
                 android:text="@string/choose_category_btn_new_item"
                 app:icon="@drawable/ic_category"
-                app:iconTint="@color/color_default"
-                app:isVisibleWithGone="@{viewModel.fieldManager.category.fieldValue == null}" />
+                app:iconTint="@color/color_default" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_m"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/categories_desired_label_new_item"
+                android:textColor="@color/color_default"
+                android:textSize="@dimen/text_m" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_s"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/color_default"
+                android:textSize="@dimen/text_sm"
+                android:text="@{viewModel.fieldManager.desiredCategoriesFormattedValue}"
+                app:isVisibleWithGone="@{viewModel.fieldManager.desiredCategories.fieldValue != null}"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/BtnWhiteBorder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height_auth"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/margin_l"
+                android:layout_marginTop="@dimen/margin_s"
+                android:layout_marginEnd="@dimen/margin_l"
+                android:onClick="@{() -> viewModel.onDesiredCategoriesClick()}"
+                android:text="@string/choose_category_btn_new_item"
+                app:icon="@drawable/ic_category"
+                app:iconTint="@color/color_default" />
 
             <TextView
                 android:layout_width="wrap_content"

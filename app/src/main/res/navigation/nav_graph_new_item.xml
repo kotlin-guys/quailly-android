@@ -17,6 +17,20 @@
                 android:name="reqCode"
                 app:argType="string" />
         </action>
+        <action
+            android:id="@+id/action_newItemFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment">
+            <argument
+                android:name="reqCode"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_newItemFragment_to_desiredCategoriesFragment"
+            app:destination="@id/desiredCategoriesFragment">
+            <argument
+                android:name="reqCode"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <dialog
@@ -24,6 +38,26 @@
         android:name="ru.kpfu.itis.quailly.app.ui.new_item.photo_chooser.PhotoChooserBottomSheet"
         android:label="ChoosePhotoFragment"
         tools:layout="@layout/bottom_sheet_photo_chooser" >
+        <argument
+            android:name="reqCode"
+            app:argType="string" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/categoryFragment"
+        android:name="ru.kpfu.itis.quailly.app.ui.new_item.category.CategoryBottomSheet"
+        android:label="CategoryFragment"
+        tools:layout="@layout/bottom_sheet_categories" >
+        <argument
+            android:name="reqCode"
+            app:argType="string" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/desiredCategoriesFragment"
+        android:name="ru.kpfu.itis.quailly.app.ui.new_item.desired_categories.DesiredCategoriesBottomSheet"
+        android:label="DesiredCategoriesFragment"
+        tools:layout="@layout/bottom_sheet_desired_categories" >
         <argument
             android:name="reqCode"
             app:argType="string" />

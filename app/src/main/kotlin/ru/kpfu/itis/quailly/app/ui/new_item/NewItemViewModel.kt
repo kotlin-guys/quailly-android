@@ -2,11 +2,14 @@ package ru.kpfu.itis.quailly.app.ui.new_item
 
 import android.net.Uri
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import ru.kpfu.itis.quailly.app.ui.base.BaseViewModel
 import ru.kpfu.itis.quailly.app.ui.events.navigation.NavigationCommand
 import ru.kpfu.itis.quailly.app.ui.new_item.field_manager.NewItemFieldManager
+import ru.kpfu.itis.quailly.app.ui.new_item.model.CategoryResult
 import ru.kpfu.itis.quailly.app.ui.utils.resource_provider.ResourceProvider
+import ru.kpfu.itis.quailly.domain.model.Category
 import ru.kpfu.itis.quailly.domain.use_case.photo.PhotoInteractor
 import javax.inject.Inject
 
@@ -18,10 +21,13 @@ class NewItemViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val reqCodePhoto = 0
+    val reqCodeCategory = 1
+    val reqCodeDesiredCategories = 2
 
     val isBtnEnabled = MediatorLiveData<Boolean>().apply {
         addSource(fieldManager.isFormValid) { isFormValid -> this.value = isFormValid }
     }
+    val category = MutableLiveData<Category>()
 
     fun onPhotoClick() = navigate(
         NavigationCommand.To(
@@ -29,9 +35,17 @@ class NewItemViewModel @Inject constructor(
         )
     )
 
-    fun onCategoryClick() {
+    fun onCategoryClick() = navigate(
+        NavigationCommand.To(
+            NewItemFragmentDirections.actionNewItemFragmentToCategoryFragment(reqCodeCategory.toString())
+        )
+    )
 
-    }
+    fun onDesiredCategoriesClick() = navigate(
+        NavigationCommand.To(
+            NewItemFragmentDirections.actionNewItemFragmentToDesiredCategoriesFragment(reqCodeDesiredCategories.toString())
+        )
+    )
 
     fun onSaveBtnClick() {
         launch {
@@ -42,10 +56,22 @@ class NewItemViewModel @Inject constructor(
         }.invokeOnCompletion { isBtnEnabled.value = true }
     }
 
-    override fun onNavigationResult(value: Any) {
-        value as Uri
-        launch {
-            fieldManager.image.fieldValue.value = value
+    override fun onNavigationResult(key: String, value: Any) {
+        when (key.toInt()) {
+            reqCodePhoto -> {
+                value as Uri
+                launch {
+                    fieldManager.image.fieldValue.value = value
+                }
+            }
+            reqCodeCategory -> {
+                value as CategoryResult
+                fieldManager.category.fieldValue.value = Category(value.id, value.name)
+            }
+            reqCodeDesiredCategories -> {
+                value as List<CategoryResult>
+                fieldManager.desiredCategories.fieldValue.value = value.map { Category(it.id, it.name) }
+            }
         }
     }
 }

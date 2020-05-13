@@ -20,7 +20,9 @@
     <string name="name_label_new_item">Название:</string>
     <string name="description_label_new_item">Описание:</string>
     <string name="category_label_new_item">Категория:</string>
+    <string name="categories_desired_label_new_item">Категории для обмена:</string>
     <string name="choose_category_btn_new_item">Выберите категорию</string>
+    <string name="choose_category_btn_save">Сохранить</string>
     <string name="add_photo_label_new_item">Фотография:</string>
     <string name="add_photo_btn_new_item">Добавьте фотографию</string>
     <string name="save_btn_new_item">Сохранить предмет</string>

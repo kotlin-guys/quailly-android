@@ -17,6 +17,7 @@ import Libraries.Versions.coroutinesVersion
 import Libraries.Versions.daggerVersion
 import Libraries.Versions.googleAuthVersion
 import Libraries.Versions.javaxInjectVersion
+import Libraries.Versions.recyclerChoiceVersion
 import TestLibraries.Versions.androidJunitVersion
 import TestLibraries.Versions.espressoVersion
 import TestLibraries.Versions.junitVersion
@@ -51,7 +52,7 @@ object Libraries {
         const val javaxInjectVersion = "1"
         const val daggerVersion = "2.25.2"
         const val googleAuthVersion = "18.0.0"
-        const val firebaseAuthVersion = "19.3.1"
+        const val recyclerChoiceVersion = "2.3.0"
     }
 
     const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
@@ -64,6 +65,7 @@ object Libraries {
     const val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
 
     const val googleAuth = "com.google.android.gms:play-services-auth:$googleAuthVersion"
+    const val recyclerWithChoice = "com.davidecirillo.multichoicerecyclerview:multichoicerecyclerview:$recyclerChoiceVersion"
 
     object AndroidX {
 

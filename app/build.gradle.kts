@@ -72,6 +72,7 @@ dependencies {
     kapt(Libraries.daggerCompiler)
 
     implementation(Libraries.googleAuth)
+    implementation(Libraries.recyclerWithChoice)
 
     implementation(Libraries.Retrofit.jsonConverter)
     implementation(Libraries.Retrofit.retrofit)
