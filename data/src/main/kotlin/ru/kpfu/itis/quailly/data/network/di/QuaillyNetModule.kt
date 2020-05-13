@@ -24,7 +24,13 @@ class QuaillyNetModule {
 
     @Provides
     @PerApp
-    fun notAuthedQuaillyApi(@NotAuthedQualifier retrofit: Retrofit) = retrofit.create(QuaillyNotAuthedApi::class.java)
+    fun notAuthedQuaillyApi(@NotAuthedQualifier retrofit: Retrofit) =
+        retrofit.create(QuaillyNotAuthedApi::class.java)
+
+    @Provides
+    @PerApp
+    fun authedQuaillyApi(@AuthedQualifier retrofit: Retrofit) =
+        retrofit.create(QuaillyAuthedApi::class.java)
 
     @Provides
     @PerApp
@@ -92,7 +98,7 @@ class QuaillyNetModule {
     fun authedInterceptor(tokenHelper: TokenHelper): Interceptor = Interceptor {
         var request = it.request()
 
-        tokenHelper.getToken()?.let {token ->
+        tokenHelper.getToken()?.let { token ->
             request = request.newBuilder()
                 .addHeader(HEADER_AUTH, token)
                 .build()

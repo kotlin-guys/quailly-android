@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 class NewItemViewModel @Inject constructor(
     val fieldManager: NewItemFieldManager,
-
     private val photoInteractor: PhotoInteractor,
     private val resProvider: ResourceProvider
 ) : BaseViewModel() {

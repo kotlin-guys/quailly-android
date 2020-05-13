@@ -8,7 +8,9 @@ import ru.kpfu.itis.quailly.core.di.PerApp
 import ru.kpfu.itis.quailly.data.repository.auth.AuthRepoImpl
 import ru.kpfu.itis.quailly.data.repository.category.CategoryRepositoryImpl
 import ru.kpfu.itis.quailly.data.repository.image.PhotoRepositoryImpl
+import ru.kpfu.itis.quailly.data.repository.merchandise.MerchandisesRepositoryImpl
 import ru.kpfu.itis.quailly.domain.repo.AuthRepo
+import ru.kpfu.itis.quailly.domain.repo.MerchandisesRepository
 import ru.kpfu.itis.quailly.domain.repo.CategoryRepository
 import ru.kpfu.itis.quailly.domain.repo.PhotoRepository
 
@@ -28,4 +30,8 @@ interface RepoModule {
     @Binds
     @PerApp
     fun bind3(repo: CategoryRepositoryImpl): CategoryRepository
+
+    @Binds
+    @PerApp
+    fun bind4(repo: MerchandisesRepositoryImpl): MerchandisesRepository
 }
