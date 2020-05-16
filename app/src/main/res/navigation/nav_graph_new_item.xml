@@ -31,6 +31,11 @@
                 android:name="reqCode"
                 app:argType="string" />
         </action>
+        <action
+            android:id="@+id/action_newItemFragment_to_mainFlowFragment"
+            app:destination="@id/nav_graph_authed"
+            app:popUpTo="@id/newItemFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <dialog
@@ -62,5 +67,7 @@
             android:name="reqCode"
             app:argType="string" />
     </dialog>
+
+    <include app:graph="@navigation/nav_graph_authed" />
 
 </navigation>

@@ -29,11 +29,6 @@ class QuaillyNetModule {
 
     @Provides
     @PerApp
-    fun authedQuaillyApi(@AuthedQualifier retrofit: Retrofit) =
-        retrofit.create(QuaillyAuthedApi::class.java)
-
-    @Provides
-    @PerApp
     fun authedQuaillyApi(@AuthedQualifier retrofit: Retrofit) = retrofit.create(QuaillyAuthedApi::class.java)
 
     @Provides

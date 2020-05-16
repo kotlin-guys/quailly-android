@@ -1,8 +1,8 @@
-package ru.kpfu.itis.quailly.data.network.model.item
+package ru.kpfu.itis.quailly.data.network.model.merchandises
 
 import com.google.gson.annotations.SerializedName
 
-data class ItemReqModel (
+data class NewMerchandiseReqModel (
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
     @SerializedName("pictureUrl") val pictureUrl: String,
