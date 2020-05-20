@@ -27,4 +27,7 @@
     <string name="add_photo_btn_new_item">Добавьте фотографию</string>
     <string name="save_btn_new_item">Сохранить предмет</string>
 
+    <string name="no_items">Нет предметов для обмена :(</string>
+
+
 </resources>

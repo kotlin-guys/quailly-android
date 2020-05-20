@@ -71,6 +71,7 @@ dependencies {
     implementation(Libraries.dagger)
     kapt(Libraries.daggerCompiler)
 
+    implementation(Libraries.lottie)
     implementation(Libraries.googleAuth)
     implementation(Libraries.recyclerWithChoice)
 

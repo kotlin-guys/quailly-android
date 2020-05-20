@@ -50,7 +50,9 @@ class NewItemViewModel @Inject constructor(
 
     fun onDesiredCategoriesClick() = navigate(
         NavigationCommand.To(
-            NewItemFragmentDirections.actionNewItemFragmentToDesiredCategoriesFragment(reqCodeDesiredCategories.toString())
+            NewItemFragmentDirections.actionNewItemFragmentToDesiredCategoriesFragment(
+                reqCodeDesiredCategories.toString()
+            )
         )
     )
 
@@ -68,13 +70,13 @@ class NewItemViewModel @Inject constructor(
                     name = fieldManager.name.fieldValue.value ?: "",
                     description = fieldManager.description.fieldValue.value ?: "",
                     pictureUrl = imageLink.value ?: "",
-                    categoryId = fieldManager.category.fieldValue.value?.id ?:0,
+                    categoryId = fieldManager.category.fieldValue.value?.id ?: 0,
                     desireCategoriesId = fieldManager.desiredCategories.fieldValue.value?.map { it.id } ?: emptyList()
                 ))
 
                 navigate(
                     NavigationCommand.To(
-                        NewItemFragmentDirections.actionNewItemFragmentToChoosePhotoFragment(reqCodePhoto.toString())
+                        NewItemFragmentDirections.actionNewItemFragmentToMainFlowFragment()
                     )
                 )
             } catch (e: Exception) {

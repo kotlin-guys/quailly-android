@@ -17,6 +17,7 @@ import Libraries.Versions.coroutinesVersion
 import Libraries.Versions.daggerVersion
 import Libraries.Versions.googleAuthVersion
 import Libraries.Versions.javaxInjectVersion
+import Libraries.Versions.lottieVersion
 import Libraries.Versions.recyclerChoiceVersion
 import TestLibraries.Versions.androidJunitVersion
 import TestLibraries.Versions.espressoVersion
@@ -51,6 +52,7 @@ object Libraries {
         const val coroutinesVersion = "1.3.0"
         const val javaxInjectVersion = "1"
         const val daggerVersion = "2.25.2"
+        const val lottieVersion = "3.4.0"
         const val googleAuthVersion = "18.0.0"
         const val recyclerChoiceVersion = "2.3.0"
     }
@@ -64,6 +66,7 @@ object Libraries {
     const val dagger = "com.google.dagger:dagger:$daggerVersion"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
 
+    const val lottie = "com.airbnb.android:lottie:$lottieVersion"
     const val googleAuth = "com.google.android.gms:play-services-auth:$googleAuthVersion"
     const val recyclerWithChoice = "com.davidecirillo.multichoicerecyclerview:multichoicerecyclerview:$recyclerChoiceVersion"
 

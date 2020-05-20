@@ -11,3 +11,10 @@ fun loadUrl(view: ImageView, value: String?) {
         Glide.with(view).load(it).transform(CircleCrop()).into(view)
     }
 }
+
+@BindingAdapter("imageUrl")
+fun setImageUrl(imageView: ImageView, url: String?) {
+    if (url.isNullOrEmpty().not()) {
+        Glide.with(imageView).load(url).into(imageView)
+    }
+}

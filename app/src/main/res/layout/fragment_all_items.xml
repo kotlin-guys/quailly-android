@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,8 +10,194 @@
             type="ru.kpfu.itis.quailly.app.ui.main_flow.all_items.AllItemsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            app:isVisible="@{!viewModel.noItems}"
+            app:layoutDescription="@xml/scene_main">
+
+            <FrameLayout
+                android:id="@+id/bottomCard"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:isVisible="@{viewModel.isOneItem}">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            app:imageUrl="@{viewModel.bottomItemImage}"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@tools:sample/avatars" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_m"
+                            android:textColor="@color/color_text_default"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="@dimen/text_m"
+                            android:text="@{viewModel.bottomItemTitle}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_bottom" />
+
+                        <ImageView
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginEnd="@dimen/margin_l"
+                            android:layout_marginBottom="@dimen/margin_l"
+                            android:src="@drawable/ic_baseline_done"
+                            android:tint="@color/color_primary_violet"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <ImageView
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginStart="@dimen/margin_l"
+                            android:layout_marginBottom="@dimen/margin_l"
+                            android:src="@drawable/ic_baseline_close"
+                            android:tint="@color/color_error"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/topCard"
+                android:layout_width="0dp"
+                android:layout_height="0dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            app:imageUrl="@{viewModel.topItemImage}"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@tools:sample/avatars" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_m"
+                            android:textColor="@color/color_text_default"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="@dimen/text_m"
+                            android:text="@{viewModel.topItemTitle}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_top" />
+
+                        <ImageView
+                            android:id="@+id/likeButton"
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginEnd="@dimen/margin_l"
+                            android:layout_marginBottom="@dimen/margin_l"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_baseline_done"
+                            android:tint="@color/color_primary_violet"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/passButton"
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginStart="@dimen/margin_l"
+                            android:layout_marginBottom="@dimen/margin_l"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_baseline_close"
+                            android:tint="@color/color_error"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+
+            <ImageView
+                android:id="@+id/passIcon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/backround_circle"
+                android:src="@drawable/ic_baseline_close"
+                android:tint="@color/color_error" />
+
+            <ImageView
+                android:id="@+id/likeIcon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/backround_circle"
+                android:src="@drawable/ic_baseline_favorite_border"
+                android:tint="@color/color_primary_violet" />
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isVisible="@{viewModel.noItems}">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/iv_lottie_empty"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/lottie_cries"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_empty"/>
+
+            <TextView
+                android:id="@+id/tv_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
+                android:textColor="@color/color_text_default"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/text_m"
+                android:text="@string/no_items"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_lottie_empty"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 
 </layout>

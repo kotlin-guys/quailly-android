@@ -1,13 +1,13 @@
 package ru.kpfu.itis.quailly.data.repository.merchandise.mapper
 
-import ru.kpfu.itis.quailly.data.network.model.merchandises.MerchandiseResponseModel
+import ru.kpfu.itis.quailly.data.network.model.merchandises.MerchandisesResponseModel
 import ru.kpfu.itis.quailly.domain.model.MerchandiseModel
 import javax.inject.Inject
 
 class MerchandiseResponseMapper @Inject constructor() :
-        (MerchandiseResponseModel) -> MerchandiseModel {
+        (MerchandisesResponseModel) -> MerchandiseModel {
 
-    override fun invoke(responseModel: MerchandiseResponseModel): MerchandiseModel =
+    override fun invoke(responseModel: MerchandisesResponseModel): MerchandiseModel =
         MerchandiseModel(
             responseModel.authorId,
             responseModel.categoryId,

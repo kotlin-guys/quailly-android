@@ -3,7 +3,7 @@ package ru.kpfu.itis.quailly.data.network.model.merchandises
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class MerchandiseResponseModel(
+data class MerchandisesResponseModel(
     @SerializedName("authorId")
     val authorId: Int,
     @SerializedName("categoryId")
