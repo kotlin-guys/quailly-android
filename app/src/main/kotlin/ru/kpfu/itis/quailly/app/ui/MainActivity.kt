@@ -33,15 +33,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun observeNavigation() {
-        findNavController(R.id.nav_host_fragment_main).setGraph(R.navigation.nav_graph_auth)
 
-        //TODO:
-//        mainViewModel.isAuthed.observe(this) {
-//            when (it) {
-//                AuthState.NOT_AUTHED -> findNavController(R.id.nav_host_fragment_main).setGraph(R.navigation.nav_graph_authed)
-//                AuthState.FULL_AUTHED -> findNavController(R.id.nav_host_fragment_main).setGraph(R.navigation.nav_graph_authed)
-//            }
-//        }
+        when (mainViewModel.isAuthed) {
+            false -> findNavController(R.id.nav_host_fragment_main).setGraph(R.navigation.nav_graph_auth)
+            true -> findNavController(R.id.nav_host_fragment_main).setGraph(R.navigation.nav_graph_authed)
+        }
     }
 }
 

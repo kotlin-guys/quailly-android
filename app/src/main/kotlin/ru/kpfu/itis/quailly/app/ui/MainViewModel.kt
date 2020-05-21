@@ -1,15 +1,13 @@
 package ru.kpfu.itis.quailly.app.ui
 
 import ru.kpfu.itis.quailly.app.ui.base.BaseViewModel
+import ru.kpfu.itis.quailly.app.ui.utils.SingleEventLiveData
+import ru.kpfu.itis.quailly.domain.use_case.auth.IsAuthedUseCase
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor() : BaseViewModel() {
+class MainViewModel @Inject constructor(
+    isAuthedUseCase: IsAuthedUseCase
+) : BaseViewModel() {
 
-    init {
-        dealWithAuthState()
-    }
-
-    private fun dealWithAuthState() {
-        //TODO
-    }
+    val isAuthed = isAuthedUseCase.execute()
 }

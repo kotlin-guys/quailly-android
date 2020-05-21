@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidAppTemplate</string>
+    <string name="app_name">Quailly</string>
 
     <!--common-->
     <string name="close_error_alert_dialog">Ок</string>

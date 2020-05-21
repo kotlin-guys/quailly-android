@@ -30,4 +30,6 @@ class AuthRepoImpl @Inject constructor(
             false
         }
     }
+
+    override fun isAuthed(): Boolean = tokenHelper.getToken() != null
 }
